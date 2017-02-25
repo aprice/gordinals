@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+
+	"github.com/aprice/gordinals/ordinal"
 )
 
 func main() {
@@ -16,15 +18,6 @@ func main() {
 		fmt.Fprintf(os.Stderr, "%s is not an integer.", os.Args[1])
 		os.Exit(2)
 	}
-	switch n % 10 {
-	case 1:
-		fmt.Print("st")
-	case 2:
-		fmt.Print("nd")
-	case 3:
-		fmt.Print("rd")
-	default:
-		fmt.Print("th")
-	}
+	fmt.Print(ordinal.For(n))
 	os.Exit(0)
 }
